@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <strong>Price:</strong>
+  <%= @room.price %>
+</p>
+
+
+<p>
+  <strong>Room name:</strong>
+  <%= @room.room_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @room.description %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @room.location %>
+</p>
+
+<p>
+  <strong>Bed:</strong>
+  <%= @room.bed %>
+</p>
+
+<p>
+  <strong>Bathroom:</strong>
+  <%= @room.bathroom %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @room.capacity %>
+</p>
+
+<p>
+  <strong>Pets:</strong>
+  <%= @room.pets %>
+</p>
+
+<p>
+  <strong>Smoking:</strong>
+  <%= @room.smoking %>
+</p>
+
+<p>
+  <strong>Wifi:</strong>
+  <%= @room.wifi %>
+</p>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>
