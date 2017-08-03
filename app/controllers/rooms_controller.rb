@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   # GET /rooms
@@ -71,4 +72,4 @@ class RoomsController < ApplicationController
     def room_params
       params.require(:room).permit( :price, :room_id, :room_name, :description, :location, :bed, :bathroom, :capacity, :pets, :smoking, :wifi, :avatar)
     end
-end
+  end

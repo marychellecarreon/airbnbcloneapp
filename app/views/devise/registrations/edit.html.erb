@@ -18,31 +18,8 @@
   <%= f.text_field :full_name, autofocus: true %>
   </div>
 
-  <div class="field">
-  <%= f.label :Email %><br />
-  <%= f.email_field :email, autofocus: true %>
-  </div>
 
-  <div class="field">
-  <%= f.label :Location %><br />
-  <%= f.text_field :location, autofocus: true %>
-  </div>
-
-  <div class="field">
-  <%= f.label :Phone_Number %><br />
-  <%= f.text_field :phone_no, autofocus: true %>
-  </div>
-
-  <div class="field">
-  <%= f.label :About %><br />
-  <%= f.text_field :about, autofocus: true %>
-  </div>
-
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
+ <% if current_user.provider != "facebook" %>
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
@@ -61,6 +38,7 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Update" %>

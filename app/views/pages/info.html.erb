@@ -1,10 +1,9 @@
 <center><h1>Welcome to Airbnb</h1><center>
 
-<% if user_signed_in? %>
-<center><li><%= link_to 'Become a Host', new_room_path, class: "button" %></li><center>
-<% end %>
-</ul>
-</div>
+<center><li><%= link_to 'Become a Host', new_room_path, class: "btn btn-default" %></li><center>
+</br>
+<center><li><%= link_to 'View Available Rooms', rooms_path, class: "btn btn-default" %></li><center>
+
 
 
 

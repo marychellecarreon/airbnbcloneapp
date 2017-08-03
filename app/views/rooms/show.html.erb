@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag(@room.avatar.url(:medium)) %>
+</p>
 
+<p>
+  <strong>User:</strong>
+  <%= @room.user_id %>
+</p>
 
 <p>
   <strong>Price:</strong>
@@ -52,6 +60,8 @@
   <strong>Wifi:</strong>
   <%= @room.wifi %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
