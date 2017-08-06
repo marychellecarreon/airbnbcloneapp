@@ -21,11 +21,3 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
-#Airbnb-Clone
-#Airbnb-Clone2
-# Airbnb-Clone2
-# Airbnb-Clone2
-#Airbnb-Clone
-# airbnb2-clone
-# airbnb2-clone
