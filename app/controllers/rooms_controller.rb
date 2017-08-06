@@ -5,13 +5,19 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.all
+    @rooms = Room.paginate(page: params[:page])
   end
 
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+    @reviews = @room.reviews
+    @average_review = if @reviews.blank?
+      0
+    else
+      @room.reviews.average(:rating)
   end
+end
 
   # GET /rooms/new
   def new
@@ -70,6 +76,6 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit( :price, :room_id, :room_name, :description, :location, :bed, :bathroom, :capacity, :pets, :smoking, :wifi, :avatar)
+      params.require(:room).permit( :price, :host_name, :room_id, :room_name, :description, :country, :location, :bed, :bathroom, :capacity, :pets, :smoking, :wifi, :avatar)
     end
   end

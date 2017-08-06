@@ -6,8 +6,10 @@
   <thead>
     <tr>
       <th>Price</th>
+      <th>Host Name</th>
       <th>Room name</th>
       <th>Description</th>
+      <th>Country</th>
       <th>Location</th>
       <th>Bed</th>
       <th>Bathroom</th>
@@ -15,16 +17,20 @@
       <th>Pets</th>
       <th>Smoking</th>
       <th>Wifi</th>
+      <th>Date posted</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+  <%= will_paginate %>
     <% @rooms.each do |room| %>
       <tr>
         <td><%= room.price %></td>
+        <td><%= room.host_name %></td>
         <td><%= room.room_name %></td>
         <td><%= room.description %></td>
+        <td><%= room.country %></td>
         <td><%= room.location %></td>
         <td><%= room.bed %></td>
         <td><%= room.bathroom %></td>
@@ -32,15 +38,18 @@
         <td><%= room.pets %></td>
         <td><%= room.smoking %></td>
         <td><%= room.wifi %></td>
+        <td><%= time_ago_in_words(room.created_at)%></td>
         <td><%= image_tag room.avatar.url(:medium) %></td>
-        <td><%= link_to 'Show', room %></td>
-        <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+       <td><%= link_to 'Show', room %></td>
+       <td><%= link_to 'Edit', edit_room_path(room) %></td>
+       <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     </tr>
+   <% end %>
+   <%= will_paginate %>
+ </tbody>
 </table>
 
 <br>
 
 <%= link_to 'New Room', new_room_path %>
+

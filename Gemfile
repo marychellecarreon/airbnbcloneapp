@@ -11,6 +11,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'devise'
 gem 'jquery-rails'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @room.user_id %>
+  <strong>Host Name:</strong>
+  <%= @room.host_name %>
 </p>
 
 <p>
@@ -27,6 +27,11 @@
 </p>
 
 <p>
+  <strong>Country:</strong>
+  <%= @room.country %>
+</p>
+
+<p>
   <strong>Location:</strong>
   <%= @room.location %>
 </p>
@@ -42,26 +47,60 @@
 </p>
 
 <p>
-  <strong>Capacity:</strong>
-  <%= @room.capacity %>
+<strong>Capacity:</strong>
+<%= @room.capacity %>
 </p>
 
 <p>
-  <strong>Pets:</strong>
-  <%= @room.pets %>
+<strong>Pets:</strong>
+<%= @room.pets %>
 </p>
 
 <p>
-  <strong>Smoking:</strong>
-  <%= @room.smoking %>
+<strong>Smoking:</strong>
+<%= @room.smoking %>
 </p>
 
 <p>
-  <strong>Wifi:</strong>
-  <%= @room.wifi %>
+<strong>Wifi:</strong>
+<%= @room.wifi %>
 </p>
 
+
+<p> AVERAGE RATING <p>
+<div class="average-review-rating" data-score=<%= @average_review %>></div>
+<span> Based on <%=@room.reviews.count %> review/s </span>
+</p>
+
+
+<!-- Review & Ratings -->
+</br>
+</br>
+
+<%= render @room.reviews %>
+
+<div>
+  <%= link_to "Add Review", new_room_review_path(@room) %>
+</div>
 
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
+
+<script>
+   $('.review-rating').raty({
+     readOnly: true,
+     score: function() {
+       return $(this).attr('data-score');
+     }
+   });
+ </script>
+ 
+ <script>
+   $('.average-review-rating').raty({
+     readOnly: true,
+     score: function() {
+       return $(this).attr('data-score')
+     }
+   });
+ </script>
