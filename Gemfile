@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
+gem 'geocoder'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
