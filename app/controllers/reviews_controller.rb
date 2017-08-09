@@ -15,9 +15,16 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
+
   # GET /reviews/1/edit
   def edit
-  end
+    if current_user.id == @booking.user.id
+      @review.edit
+        redirect_to room_path(@room)
+    else 
+      "This is not your post"
+end
+end
 
   # POST /reviews
   # POST /reviews.json
@@ -44,8 +51,12 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
-    @review.destroy
-    redirect_to room_path(@room)
+    if current_user.id == @booking.user.id
+      @review.destroy
+        redirect_to room_path(@room)
+    else 
+      "This is not your post"
+    end
   end
 
 

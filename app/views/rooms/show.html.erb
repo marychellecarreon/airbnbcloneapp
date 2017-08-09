@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
 
+</br>
+</br>
 
 
 <div id="map"></div>
@@ -25,9 +26,11 @@
       <% for room in @room.nearbys(10) %>
        <li><%= link_to room.location, room %> (<%= room.distance.round(2) %> kilometers away) </li>
 <% end %>
+       <td><%= image_tag room.avatar.url(:thumb) %></td>
    </div>
 
-   </br>
+
+ </br>
    </br>
 
 
@@ -99,6 +102,8 @@
 <%= @room.wifi %>
 </p>
 
+<%= render 'bookings/form', booking: @booking %>
+
 
 <p> AVERAGE RATING <p>
 <div class="average-review-rating" data-score=<%= @average_review %>></div>
@@ -128,7 +133,7 @@
      }
    });
  </script>
- 
+
  <script>
    $('.average-review-rating').raty({
      readOnly: true,
@@ -137,3 +142,5 @@
      }
    });
  </script>
+
+

@@ -19,6 +19,6 @@ class RegistrationsController < Devise::RegistrationsController
 	# Be sure to update your create() and update() controller methods.
 
 	def user_params
-	  params.require(:user).permit(:avatar,:full_name, :email, :password, :password_confirmation)
+	  params.require(:user).permit(:avatar,:full_name, :email, :password, :password_confirmation, :room_id, :user_id)
 	end
 end

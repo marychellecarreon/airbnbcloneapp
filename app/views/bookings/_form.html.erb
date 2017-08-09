@@ -1,0 +1,63 @@
+<%= form_with(model: booking, local: true) do |form| %>
+  <% if booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_select :start_date, id: :booking_start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date %>
+    <%= form.date_select :end_date, id: :booking_end_date %>
+  </div>
+
+  <div class ="field">
+      <%= form.hidden_field :price, value: @room.price, id: 'booking_price' %>
+  </div>
+
+   <div class ="field">
+      <%= form.hidden_field :totalprice, id: 'booking_totalprice' %>
+  </div>
+
+
+  <div class="field">
+        <%= form.hidden_field :room_id, value: @room.id %>
+    </div>
+
+    <div class="field">
+          <%= form.hidden_field :user_id, value: current_user.id %>
+      </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+<script>
+$('select').on('change',function(){
+y1 = $('#booking_start_date_1i').val()
+y2 = $('#booking_end_date_1i').val()
+m1 = $('#booking_start_date_2i').val()
+m2 = $('#booking_end_date_2i').val()
+d1 = $('#booking_start_date_3i').val()
+d2 = $('#booking_end_date_3i').val()
+var date2 = new Date(y1, m1, d1);
+var date1 = new Date(y2, m2, d2);
+
+var diff = date1 - date2;
+var days = diff / 1000 / 60 / 60 / 24;
+$('#booking_totalprice').val(days*$('#booking_price').val())
+});
+</script>
