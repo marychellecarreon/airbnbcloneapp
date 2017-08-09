@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170806005902) do
+ActiveRecord::Schema.define(version: 20170807053940) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20170806005902) do
     t.datetime "avatar_updated_at"
     t.string "host_name"
     t.string "country"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 

@@ -5,8 +5,12 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.paginate(page: params[:page])
+  if params[:search].present?
+    @rooms = Room.near(params[:search], 50, :order => :distance)
+  else
+    @rooms = Room.all
   end
+end
 
   # GET /rooms/1
   # GET /rooms/1.json
