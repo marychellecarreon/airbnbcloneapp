@@ -48,7 +48,11 @@
         <td><%= room.wifi %></td>
         <td><%= time_ago_in_words(room.created_at)%> ago </td>
         <td><%= time_ago_in_words(room.updated_at)%> ago </td>
+<<<<<<< HEAD
         <td><%= image_tag room.avatar.url(:thumb) %></td>
+=======
+        <td><%= image_tag room.avatar.url(:medium) %></td>
+>>>>>>> dce26c2f005a04950d404bd3be009bc50f2e0b5f
        <td><%= link_to 'Show', room %></td>
        <td><%= link_to 'Edit', edit_room_path(room) %></td>
        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>

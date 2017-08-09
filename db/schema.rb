@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170809070050) do
 
   create_table "bookings", force: :cascade do |t|
@@ -24,6 +25,9 @@ ActiveRecord::Schema.define(version: 20170809070050) do
     t.index ["room_id"], name: "index_bookings_on_room_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
+=======
+ActiveRecord::Schema.define(version: 20170807053940) do
+>>>>>>> dce26c2f005a04950d404bd3be009bc50f2e0b5f
 
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"

@@ -5,7 +5,10 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
+<<<<<<< HEAD
   @rooms = current_user.rooms
+=======
+>>>>>>> dce26c2f005a04950d404bd3be009bc50f2e0b5f
   if params[:search].present?
     @rooms = Room.near(params[:search], 50, :order => :distance)
   else

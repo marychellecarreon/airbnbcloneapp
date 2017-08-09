@@ -36,6 +36,39 @@
 
 
 
+
+
+<div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHOnCFKBdLisShrN4r41bfyqR02ZWZ6Bs&callback=initMap">
+    </script>
+
+<h3>Nearby</h3>
+    <div class="row">
+      <% for room in @room.nearbys(10) %>
+       <li><%= link_to room.location, room %> (<%= room.distance.round(2) %> kilometers away) </li>
+<% end %>
+   </div>
+
+   </br>
+   </br>
+
+
+
+
 <p>
   <strong>Photo:</strong>
   <%= image_tag(@room.avatar.url(:medium)) %>
